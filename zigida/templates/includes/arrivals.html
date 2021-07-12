@@ -1,0 +1,35 @@
+{% load static %}
+
+
+<!-- /new_arrivals -->
+<div class="new_arrivals_agile_w3ls_info">
+    <div class="container">
+        <h3 class="wthree_text_info">Nouvellement <span>ARRIVÉES</span></h3>
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li> Pour Hommes</li>
+                    <li> Pour Femmes</li>
+                    <li> Sacs</li>
+                    <li> Chaussures</li>
+                </ul>
+                <div class="resp-tabs-container">
+
+                <!--/tab_one-->
+                {% include 'includes/tab_one.html' %}
+                <!--//tab_one-->
+
+                <!--/tab_two-->
+                {% include 'includes/tab_two.html' %}
+                <!--//tab_two-->
+
+                <!--/tab_tree-->
+                {% include 'includes/tab_three.html' %}
+                <!--//tab_tree-->
+
+                {% include 'includes/tab_four.html' %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- //new_arrivals -->

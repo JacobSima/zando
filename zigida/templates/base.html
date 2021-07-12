@@ -1,0 +1,87 @@
+{% load static %}
+
+
+{% include 'includes/headlinks.html' %}
+
+<body>
+<!-- header -->
+<div class="header" id="home">
+	<div class="container">
+		<ul>
+            {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'web:logout' %}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Se déconnecter
+                        {% if i.user.fullname %}
+                            ({{ i.user.fullname }})
+                        {% endif %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-ticket" aria-hidden="true"></i>
+                        Suivi de commande
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        Se Connecter
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#myModal2">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        S'inscrire
+                    </a>
+                </li>
+            {% endif %}
+			<li><i class="fa fa-phone" aria-hidden="true"></i> Appel: +243 818 132 371</li>
+			<li>
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <a href="mailto:info@saralaroseboutique.com">info@saralaroseboutique.com</a>
+            </li>
+		</ul>
+	</div>
+</div>
+<!-- //header -->
+
+<!-- header-bot -->
+    {% include 'includes/searchbar.html' %}
+<!-- //header-bot -->
+
+<!-- banner -->
+{% include 'includes/menubar.html' %}
+<!-- //banner-top -->
+
+<!-- Modal1 -->
+{% include 'includes/sigin.html' %}
+<!-- //Modal1 -->
+
+<!-- Modal2 -->
+{% include 'includes/signup.html' %}
+<!-- //Modal2 -->
+
+
+{% block mainContent %}
+
+{% endblock mainContent %}
+
+
+<!-- footer -->
+{% include 'includes/footer.html' %}
+<!-- //footer -->
+
+<!-- login -->
+{% include 'includes/loginModal.html' %}
+<!-- //login -->
+
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+<!-- js -->
+{% include 'includes/js.html' %}
+
+</body>
+</html>

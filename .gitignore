@@ -1,0 +1,43 @@
+# Referenced from: https://github.com/github/gitignore/blob/master/Python.gitignore
+
+# PyCharm
+.idea/**
+.idea/
+.idea
+
+#DB
+config/db/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+__pycac
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Environments (going fwd)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+config/settings/.env
+Pipfile
+Pipfile.lock
+
+#Sublime-text
+zigida.sublime-project
+zigida.sublime-workspace
+
+# media
+static/media/
+
+# Vscode
+.vscode

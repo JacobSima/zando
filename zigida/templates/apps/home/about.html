@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block mainContent %}
+
+
+	<!-- /banner_bottom_agile_info -->
+	<div class="page-head_agile_info_w3l">
+		<div class="container">
+			<h3>À propos <span>Us </span></h3>
+			<!--/w3_short-->
+			<div class="services-breadcrumb">
+				<div class="agile_inner_breadcrumb">
+
+					<ul class="w3_short">
+						<li><a href="/">Accueil</a><i>|</i></li>
+						<li>À propos</li>
+					</ul>
+				</div>
+			</div>
+			<!--//w3_short-->
+		</div>
+	</div>
+
+	
+	<!-- /banner_bottom_agile_info -->
+	{%  include './_includes/about_bannerBottom.html'  %}
+
+
+
+	<!-- team -->
+	{% include './_includes/about_team.html' %}
+	<!-- //team -->
+	
+
+	<!-- schedule-bottom -->
+	{% include './_includes/about_scheduleBottom.html' %}
+	<!-- //schedule-bottom -->
+
+
+	<!-- banner-bootom-w3-agileits -->
+	<div class="banner-bootom-w3-agileits">
+		<div class="container">
+			<h3 class="wthree_text_info">What's <span>Trending</span></h3>
+
+			<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
+				<a href="women.html">
+					<div class="bb-left-agileits-w3layouts-inner grid">
+						<figure class="effect-roxy">
+							<img src="{% static 'images/bb1.jpg' %}" alt=" " class="img-responsive" />
+							<figcaption>
+								<h3><span>En</span>Vente </h3>
+								<p>Upto 55%</p>
+							</figcaption>
+						</figure>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
+				<div class="bb-middle-agileits-w3layouts grid">
+					<figure class="effect-roxy">
+						<img src="{% static 'images/bottom3.jpg' %}" alt=" " class="img-responsive" />
+						<figcaption>
+							<h3><span>En</span>Vente </h3>
+							<p>Upto 55%</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="bb-middle-agileits-w3layouts forth grid">
+					<figure class="effect-roxy">
+						<img src="{% static 'images/bottom4.jpg' %}" alt=" " class="img-responsive">
+						<figcaption>
+							<h3><span>En</span>Vente </h3>
+							<p>Upto 65%</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--/grids-->
+	<div class="agile_last_double_sectionw3ls">
+		<div class="col-md-6 multi-gd-img multi-gd-text ">
+			<a href="womens.html"><img src="{% static 'images/bot_1.jpg' %}" alt=" ">
+				<h4>Flat <span>50%</span> offer</h4>
+			</a>
+
+		</div>
+		<div class="col-md-6 multi-gd-img multi-gd-text ">
+			<a href="womens.html"><img src="{% static 'images/bot_2.jpg' %}" alt=" ">
+				<h4>Flat <span>50%</span> offer</h4>
+			</a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<!--/grids-->
+
+	
+	<!-- /we-offer -->
+	<div class="sale-w3ls">
+		<div class="container">
+			<h6>Nous Offrons <span>40%</span> En Remise Forfaitaire</h6>
+
+			<a class="hvr-outline-out button2" href="single.html">Achetez maintenant </a>
+		</div>
+	</div>
+	<!-- //we-offer -->
+
+
+	<!--/grids-->
+	{% include 'includes/grids.html' %}
+	<!--grids-->
+	
+	
+{% endblock mainContent %}

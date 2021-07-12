@@ -1,0 +1,127 @@
+{% load static %}
+
+
+<div class="ban-top">
+    <div class="container">
+        <div class="top_nav_left">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class="{% if page_name == 'home' %}active menu__item--current {% endif %}menu__item">
+                                <a class="menu__link" href="/">Accueil <span class="sr-only">{% if page_name == 'home' %}(current){% endif %}</span></a>
+                            </li>
+                            <li class="{% if page_name == 'about' %}active menu__item--current {% endif %} menu__item"><a class="menu__link" href="{% url 'web:about' %}">À propos</a></li>
+                            <li class="dropdown menu__item">
+
+                                <a href="{% url 'web:mens' %}" class="{% if page_name == 'products' or page_name == 'mens' %}active{% endif %}dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Hommes <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+                                            <a href="#"><img src="{% static 'images/top2.jpg' %}" alt=" "/></a>
+                                        </div>
+                                        <div class="col-sm-3 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{% url 'web:mens' %}">Vêtements</a></li>
+                                                <li><a href="mens.html">Portefeuilles</a></li>
+                                                <li><a href="mens.html">Chaussures</a></li>
+                                                <li><a href="mens.html">Montres</a></li>
+                                                <li><a href="mens.html">Accessoires</a></li>
+                                                <li><a href="mens.html">Sacs</a></li>
+                                                <li><a href="mens.html">Casquettes et chapeaux</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="mens.html">Bijoux</a></li>
+                                                <li><a href="mens.html">Lunettes</a></li>
+                                                <li><a href="mens.html">Parfums</a></li>
+                                                <li><a href="mens.html">Beauté</a></li>
+                                                <li><a href="mens.html">Chemises</a></li>
+                                                <li><a href="mens.html">Lunettes</a></li>
+                                                <li><a href="mens.html">Maillots de bain</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown menu__item">
+                                <a href="#" class="{% if page_name == 'femmes' %}active menu__item--current {% endif %}dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Femmes <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-3 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{% url 'web:womens' %}">Vêtements</a></li>
+                                                <li><a href="womens.html">Portefeuilles</a></li>
+                                                <li><a href="womens.html">Chaussures</a></li>
+                                                <li><a href="womens.html">Montres</a></li>
+                                                <li><a href="womens.html">Accessoires</a></li>
+                                                <li><a href="womens.html">Sacs</a></li>
+                                                <li><a href="womens.html">Casquettes et chapeaux</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="womens.html">Bijoux</a></li>
+                                                <li><a href="womens.html">Lunettes</a></li>
+                                                <li><a href="womens.html">Parfums</a></li>
+                                                <li><a href="womens.html">Beauté</a></li>
+                                                <li><a href="womens.html">Chemises</a></li>
+                                                <li><a href="womens.html">Lunettes</a></li>
+                                                <li><a href="womens.html">Maillots de bain</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-6 multi-gd-img multi-gd-text ">
+                                            <a href="#"><img src="{% static 'images/top1.jpg' %}" alt=" "/></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="{% if page_name == 'contact' %}active menu__item--current {% endif %} menu__item"><a class="menu__link" href="contact.html">Contact <span class="sr-only">{% if page_name == 'contact' %}(current){% endif %}</span></a></li>
+                            {% if staff.assignee %}
+                                <li class="{% if page_name == 'issues' %}active menu__item--current {% endif %} menu__item"><a class="menu__link" href="{% url 'web:issues:list' %}">Issues <span class="sr-only">{% if page_name == 'issues' %}(current){% endif %}</span></a></li>
+                            {% endif %}
+                            {% if staff.management %}
+                                <li class="{% if 'management' in page_name %}active menu__item--current {% endif %} menu__item"><a class="menu__link" href="{% url 'web:products:create' %}">Management <span class="sr-only">{% if page_name == 'issues' %}(current){% endif %}</span></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="top_nav_right">
+            <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                <form action="#" method="post" class="last">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="display" value="1">
+                    <button class="w3view-cart" type="submit" name="submit" value="">
+                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>

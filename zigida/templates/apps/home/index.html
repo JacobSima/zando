@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block mainContent %}
+
+    <!-- banner -->
+    {% include 'includes/bannerbottom.html' %}
+    <!-- //banner -->
+
+    {% include 'includes/schedulebottom.html' %}
+    <!-- //schedule-bottom -->
+
+    {% include 'includes/bannerTrending.html' %}
+
+    {% include 'includes/arrivals.html' %}
+
+    <!-- /we-offer -->
+		<div class="sale-w3ls">
+			<div class="container">
+				<h6>Nous Offrons <span>40%</span> En Remise Forfaitaire</h6>
+
+				<a class="hvr-outline-out button2" href="single.html">Achetez maintenant </a>
+			</div>
+		</div>
+	<!-- //we-offer -->
+
+    <!--/grids-->
+    {% include 'includes/grids.html' %}
+    <!--grids-->
+
+{% endblock mainContent %}

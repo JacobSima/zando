@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block mainContent %}
+
+    <div align="right" style="padding-top: 30px;padding-right: 40px;padding-bottom: 20px">
+        <a href="{% url 'web:issues:create' %}" class="btn btn-sm btn-info">Créer</a>
+    </div>
+
+    {% if not issues %}
+        <div style="margin: auto;width: 70%;padding: 10px;">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form action="{% if action == 'update' and issue_code %}{% url 'web:issues:update' issue_code %}{% else %}{% url 'web:issues:create' %}{% endif %}" method="post">
+                        {% csrf_token %}
+
+                        <div class="styled-input form-inline">
+                            <span title="Issue Title">{{ form.title }}</span>
+                            <span title="Issue Type">{{ form.type }}</span>
+                            <span title="Issue Status">{{ form.status }}</span>
+                            <span title="Developer">{{ form.assigned_to }}</span>
+                            <span title="Assigned By">{{ form.assigned_by }}</span>
+{#                            {{ form.title }} {{ form.type }} {{ form.status }} {{ form.assigned_to }}{{ form.assigned_by }}#}
+                        </div>
+                        <div class="form-inline">
+                            <span title="Issue Description">{{ form.description }}</span>
+                            <span title="Developer's Note">{{ form.dev_note }}</span>
+                        </div>
+                        {% if page_name == 'issues' and action == 'update' %}
+                            <button type="submit" class="btn btn-sm btn-info">Mettre à jour</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-sm btn-info">Soumettre</button>
+                        {% endif %} 
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <div style="margin: auto;padding-right: 7px;padding-left: 7px;width: 95%">
+            <table class="table table-hover">
+                <thead style="background: lightgray">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Assignee</th>
+                        <th scope="col">Assigner</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Date Updated</th>
+{#                        <th scope="col">Updated By</th>#}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for issue in issues %}
+                        <tr>
+                            <th><a href="{% url 'web:issues:update' issue.code %}">{{ issue.code }}</a></th>
+                            <td><a href="{% url 'web:issues:update' issue.code %}">{{ issue.title }}</a></td>
+                            <td>
+                                <a href="{% url 'web:issues:list' %}?type={{ issue.type }}">
+                                    {% if issue.type == 1 %}
+                                        <i class="fa fa-bug fa-2x" aria-hidden="true" title="Bug" style="color: lightsalmon"></i>
+                                    {% elif issue.type == 2 %}
+                                        <i class="fa fa-pencil-square fa-2x" aria-hidden="true" title="Enhancement" style="color: lightgreen"></i>
+                                    {% endif %}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'web:issues:list' %}?status={% if issue.status %}{{ issue.status }}{% else %}0{% endif %}">
+                                    {% if issue.status == 1 %}
+                                        <span aria-hidden="true" title="Assigned">Assigned</span>
+                                    {% elif issue.status == 2 %}
+                                        <span aria-hidden="true" title="Resolved">Resolved</span>
+                                    {% elif issue.status == 3 %}
+                                        <span aria-hidden="true" title="Closed">Closed</span>
+                                    {% else %}
+                                        <span aria-hidden="true" title="Closed">Unassigned</span>
+                                    {% endif %}
+                                </a>
+                            </td>
+                            <td><a href="{% url 'web:issues:list' %}?assignee={{ issue.assigned_to__fullname }}">{{ issue.assigned_to__fullname }}</a></td>
+                            <td><a href="{% url 'web:issues:list' %}?assigner={{ issue.assigned_by__fullname }}">{{ issue.assigned_by__fullname }}</a></td>
+                            <td>{{ issue.datetime_created|date:'d.m.Y H:i' }}</td>
+                            <td>{{ issue.datetime_updated|date:'d.m.Y H:i' }}</td>
+{#                            <td>{{ issue.last_updated_by }}</td>#}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+    {% endif %}
+
+{% endblock mainContent %}
